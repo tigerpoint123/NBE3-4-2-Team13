@@ -1,0 +1,9 @@
+FROM openjdk:17-slim
+
+WORKDIR /app
+
+# 빌드 서버에서 생성된 JAR 파일을 복사할 위치
+COPY build/libs/*.jar app.jar
+
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"] 
